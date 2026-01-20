@@ -1,73 +1,90 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="overflow-hidden">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="MooMoo">
+  <meta name="theme-color" content="#0A1A2F">
+  
   <link rel="apple-touch-icon" href="https://images.unsplash.com/photo-1596733430284-f7437764b1a9?q=80&w=180&h=180&auto=format&fit=crop">
-  <link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="./manifest.json">
+  
   <title>Tarvin's Moo Moo Express</title>
+  
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,900;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&display=swap" rel="stylesheet">
+  
   <style>
     :root {
-      --brand-blue: #1b3a57;
-      --brand-cream: #fdfbf7;
-      --brand-gold: #b8860b;
+      --brand-navy: #0A1A2F;
+      --brand-azure: #007AFF;
+      --brand-meadow: #2ECC71;
+      --brand-saffron: #F39C12;
+      --brand-silk: #FBFBFD;
     }
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    
+    * {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      box-sizing: border-box;
       -webkit-tap-highlight-color: transparent;
-      overscroll-behavior-y: none;
-      background-color: var(--brand-cream);
-      user-select: none;
     }
+
+    html, body {
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      background-color: var(--brand-navy);
+      position: fixed;
+      touch-action: manipulation;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      color: var(--brand-navy);
+      background-color: var(--brand-silk);
+    }
+
+    .brand-text { font-family: 'Playfair Display', serif; }
+
     .ios-blur {
-      backdrop-filter: blur(30px);
-      -webkit-backdrop-filter: blur(30px);
+      backdrop-filter: blur(30px) saturate(210%);
+      -webkit-backdrop-filter: blur(30px) saturate(210%);
     }
-    .safe-area-bottom {
-      padding-bottom: calc(env(safe-area-inset-bottom) + 1rem);
+
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+    .safe-area-bottom { padding-bottom: env(safe-area-inset-bottom); }
+    .safe-area-top { padding-top: env(safe-area-inset-top); }
+
+    .btn-touch { transition: transform 0.2s cubic-bezier(0, 0, 0.5, 1), opacity 0.2s ease, background-color 0.2s ease; }
+    .btn-touch:active { transform: scale(0.95); opacity: 0.85; }
+
+    .shadow-premium {
+      box-shadow: 0 8px 30px rgba(10, 26, 47, 0.08);
     }
-    .safe-area-top {
-      padding-top: env(safe-area-inset-top);
+
+    .vibrant-gradient {
+      background: linear-gradient(135deg, #0A1A2F 0%, #0047AB 100%);
     }
-    .fade-in {
-      animation: fadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+
+    .vibrant-card-gradient {
+      background: linear-gradient(135deg, #FF9500 0%, #FF5E00 100%);
     }
-    .scale-up {
-      animation: scaleUp 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    @keyframes scaleUp {
-      from { opacity: 0; transform: scale(0.85); }
-      to { opacity: 1; transform: scale(1); }
-    }
-    .cow-pattern {
-      background-color: #ffffff;
-      background-image: radial-gradient(#000 10%, transparent 11%), radial-gradient(#000 10%, transparent 11%);
-      background-size: 60px 60px;
-      background-position: 0 0, 30px 30px;
-      opacity: 0.03;
-    }
-    .brand-text {
-      font-family: 'Playfair Display', serif;
-    }
-    .milk-shadow {
-      box-shadow: 0 20px 40px -15px rgba(27, 58, 87, 0.15);
-    }
-    ::-webkit-scrollbar {
-      display: none;
-    }
+    .animate-up { animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
   </style>
+
 <script type="importmap">
 {
   "imports": {
@@ -81,14 +98,8 @@
 }
 </script>
 </head>
-<body class="overflow-hidden">
-  <div id="root" class="h-screen w-screen flex flex-col"></div>
-  <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js').catch(err => console.log('SW registration failed: ', err));
-      });
-    }
-  </script>
+<body>
+  <div id="root" class="h-full w-full"></div>
+  <script type="module" src="./index.tsx"></script>
 </body>
 </html>
