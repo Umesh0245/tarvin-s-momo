@@ -1,0 +1,22 @@
+
+{
+  "name": "Tarvin's Moo Moo Express",
+  "short_name": "Moo Moo",
+  "description": "Professional Buffalo Milk Delivery & Accounting",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#1b3a57",
+  "theme_color": "#1b3a57",
+  "icons": [
+    {
+      "src": "https://images.unsplash.com/photo-1596733430284-f7437764b1a9?q=80&w=192&h=192&auto=format&fit=crop",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1596733430284-f7437764b1a9?q=80&w=512&h=512&auto=format&fit=crop",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

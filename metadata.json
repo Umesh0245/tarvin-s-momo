@@ -1,0 +1,5 @@
+{
+  "name": "Tarvin's Express",
+  "description": "A high-efficiency iOS-style accounting and delivery tracking app for milk vendors, featuring one-tap entries, date-range calculations, and customer management.",
+  "requestFramePermissions": []
+}
