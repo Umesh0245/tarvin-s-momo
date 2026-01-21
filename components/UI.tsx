@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { BrandLogo } from './Logo';
 
 export const IOSButton: React.FC<{ 
   onClick?: () => void; 
@@ -67,8 +68,8 @@ export const IOSHeader: React.FC<{ title: string; subtitle?: string; children?: 
       </div>
       <div className="shrink-0 flex items-center gap-3">
         {children}
-        <div className={`w-10 h-10 rounded-xl flex items-center justify-center overflow-hidden border-2 shadow-sm ${vibrant ? 'border-white/40' : 'border-slate-200'}`}>
-           <img src="https://images.unsplash.com/photo-1596733430284-f7437764b1a9?q=80&w=150&auto=format&fit=crop" alt="ID" className="w-full h-full object-cover" />
+        <div className={`w-10 h-10 rounded-xl flex items-center justify-center overflow-hidden border-2 shadow-sm bg-white ${vibrant ? 'border-white/40' : 'border-slate-200'}`}>
+           <BrandLogo size={40} />
         </div>
       </div>
     </div>

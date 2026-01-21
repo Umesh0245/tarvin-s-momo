@@ -1,28 +1,24 @@
+
 <!DOCTYPE html>
 <html lang="en" class="overflow-hidden">
-
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport"
-    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="MooMoo">
   <meta name="theme-color" content="#0A1A2F">
-
-  <link rel="apple-touch-icon"
-    href="https://images.unsplash.com/photo-1596733430284-f7437764b1a9?q=80&w=180&h=180&auto=format&fit=crop">
-  <link rel="manifest" href="/manifest.json">
-
+  
+  <link rel="apple-touch-icon" href="./logo.png">
+  <link rel="manifest" href="./manifest.json">
+  
   <title>Tarvin's Moo Moo Express</title>
-
+  
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&display=swap"
-    rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&display=swap" rel="stylesheet">
+  
   <style>
     :root {
       --brand-navy: #0A1A2F;
@@ -31,7 +27,7 @@
       --brand-saffron: #F39C12;
       --brand-silk: #FBFBFD;
     }
-
+    
     * {
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
@@ -39,8 +35,7 @@
       -webkit-tap-highlight-color: transparent;
     }
 
-    html,
-    body {
+    html, body {
       height: 100%;
       width: 100%;
       overflow: hidden;
@@ -55,40 +50,21 @@
       background-color: var(--brand-silk);
     }
 
-    .brand-text {
-      font-family: 'Playfair Display', serif;
-    }
+    .brand-text { font-family: 'Playfair Display', serif; }
 
     .ios-blur {
       backdrop-filter: blur(30px) saturate(210%);
       -webkit-backdrop-filter: blur(30px) saturate(210%);
     }
 
-    .no-scrollbar::-webkit-scrollbar {
-      display: none;
-    }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-    .no-scrollbar {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
+    .safe-area-bottom { padding-bottom: env(safe-area-inset-bottom); }
+    .safe-area-top { padding-top: env(safe-area-inset-top); }
 
-    .safe-area-bottom {
-      padding-bottom: env(safe-area-inset-bottom);
-    }
-
-    .safe-area-top {
-      padding-top: env(safe-area-inset-top);
-    }
-
-    .btn-touch {
-      transition: transform 0.2s cubic-bezier(0, 0, 0.5, 1), opacity 0.2s ease, background-color 0.2s ease;
-    }
-
-    .btn-touch:active {
-      transform: scale(0.95);
-      opacity: 0.85;
-    }
+    .btn-touch { transition: transform 0.2s cubic-bezier(0, 0, 0.5, 1), opacity 0.2s ease, background-color 0.2s ease; }
+    .btn-touch:active { transform: scale(0.95); opacity: 0.85; }
 
     .shadow-premium {
       box-shadow: 0 8px 30px rgba(10, 26, 47, 0.08);
@@ -103,28 +79,33 @@
     }
 
     @keyframes slideUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
+    .animate-up { animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
 
-    .animate-up {
-      animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    @keyframes bounce-slow {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
     }
+    .animate-bounce-slow { animation: bounce-slow 3s ease-in-out infinite; }
   </style>
 
-
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@19.0.0",
+    "react-dom": "https://esm.sh/react-dom@19.0.0",
+    "react-dom/": "https://esm.sh/react-dom@19.0.0/",
+    "lucide-react": "https://esm.sh/lucide-react@0.473.0",
+    "date-fns": "https://esm.sh/date-fns@4.1.0",
+    "react/": "https://esm.sh/react@^19.2.3/"
+  }
+}
+</script>
 </head>
-
 <body>
   <div id="root" class="h-full w-full"></div>
   <script type="module" src="./index.tsx"></script>
 </body>
-
 </html>

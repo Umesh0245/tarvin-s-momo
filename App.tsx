@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { AppProvider } from './components/Store';
 import { TabType } from './types';
 import { Home as HomeIcon, PlusCircle, Users, BarChart2, Delete, ShieldCheck } from 'lucide-react';
+import { BrandLogo } from './components/Logo';
 import HomeScreen from './screens/Home';
 import EntryScreen from './screens/Entry';
 import CustomersScreen from './screens/Customers';
@@ -39,8 +40,8 @@ const App: React.FC = () => {
         <div className="absolute bottom-[-10%] left-[-10%] w-80 h-80 bg-blue-600/10 rounded-full blur-[120px]"></div>
         
         <div className="flex flex-col items-center gap-8 relative z-10 scale-110">
-          <div className="w-28 h-28 bg-white rounded-[2rem] flex items-center justify-center shadow-[0_20px_50px_rgba(0,0,0,0.3)] overflow-hidden border-4 border-white/30 animate-bounce-slow">
-             <img src="https://images.unsplash.com/photo-1596733430284-f7437764b1a9?q=80&w=400&auto=format&fit=crop" alt="Logo" className="w-full h-full object-cover" />
+          <div className="w-44 h-44 bg-white rounded-[2.5rem] flex items-center justify-center shadow-[0_25px_60px_rgba(0,0,0,0.4)] overflow-hidden border-4 border-white/30 animate-bounce-slow">
+             <BrandLogo size={160} />
           </div>
           <div className="text-center">
             <h1 className="brand-text text-5xl font-black italic tracking-tighter drop-shadow-2xl text-white">Tarvin's</h1>
@@ -68,8 +69,8 @@ const App: React.FC = () => {
     return (
       <div className="h-full w-full bg-[#FBFBFD] flex flex-col items-center px-10 safe-area-top">
         <div className="mt-20 text-center flex flex-col items-center">
-            <div className="w-20 h-20 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-xl border-2 border-slate-100 overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1596733430284-f7437764b1a9?q=80&w=200&auto=format&fit=crop" alt="Logo" className="w-full h-full object-cover" />
+            <div className="w-24 h-24 bg-white rounded-3xl flex items-center justify-center mb-6 shadow-xl border-2 border-slate-100 overflow-hidden">
+                <BrandLogo size={80} />
             </div>
             <h2 className="text-2xl font-black text-[#0A1A2F] tracking-tight">Security Access</h2>
             <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mt-2">Enter your 4-digit pin</p>
